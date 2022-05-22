@@ -22,11 +22,11 @@ import Icon from '@material-ui/core/Icon';
 import Hidden from '@material-ui/core/Hidden';
 import brand from 'dan-api/dummy/brand';
 import logo from 'dan-images/logo.svg';
-import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
-import styles from './user-jss';
 import {
   SelectRedux
 } from 'dan-components/Forms/ReduxFormMUI';
+import { TextFieldRedux, CheckboxRedux } from './ReduxFormMUI';
+import styles from './user-jss';
 
 // validation functions
 const required = value => (value === null ? 'Required' : undefined);
@@ -98,82 +98,83 @@ function RegisterForm(props) {
         >
           <Tab label="สมัครโดยใช้ Mail เท่านั้น" />
         </Tabs>
-          <section className={classes.formWrap}>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <FormControl className={classes.formControl}>
-                  <Field
-                    name="name"
-                    component={TextFieldRedux}
-                    placeholder="Username"
-                    label="Username"
-                    required
-                    className={classes.field}
-                  />
-                </FormControl>
-              </div>
-              <div>
-                <FormControl className={classes.formControl}>
-                  <Field
-                    name="email"
-                    component={TextFieldRedux}
-                    placeholder="Your Email"
-                    label="Your Email"
-                    required
-                    validate={[required, email]}
-                    className={classes.field}
-                  />
-                </FormControl>
-              </div>
-              <div>
-                <FormControl className={classes.formControl}>
-                  <Field
-                    name="password"
-                    component={TextFieldRedux}
-                    type="password"
-                    label="Your Password"
-                    required
-                    validate={[required, passwordsMatch]}
-                    className={classes.field}
-                  />
-                </FormControl>
-              </div>
-              <div>
-                <FormControl className={classes.formControl}>
-                  <Field
-                    name="passwordConfirm"
-                    component={TextFieldRedux}
-                    type="password"
-                    label="Re-type Password"
-                    required
-                    validate={[required, passwordsMatch]}
-                    className={classes.field}
-                  />
-                </FormControl>
-              </div>
-              <div>
-                <FormControl className={classes.field}>
-                  <InputLabel htmlFor="selection">สิทธิ์การเข้าใช้งาน</InputLabel>
-                  <Field
-                    name="selection"
-                    component={SelectRedux}
-                    placeholder="selection"
-                    autoWidth={trueBool}
-                  >
-                    <MenuItem value="guest">Guest user</MenuItem>
-                    <MenuItem value="super">Super user</MenuItem>
-                    <MenuItem value="admin">Admin</MenuItem>
-                  </Field>
-                </FormControl>
-              </div>
-              <div className={classes.btnArea}>
-                <Button variant="contained" color="primary" type="submit">
+        <section className={classes.formWrap}>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <FormControl className={classes.formControl}>
+                <Field
+                  name="name"
+                  component={TextFieldRedux}
+                  placeholder="Username"
+                  label="Username"
+                  required
+                  className={classes.field}
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={classes.formControl}>
+                <Field
+                  name="email"
+                  component={TextFieldRedux}
+                  placeholder="Your Email"
+                  label="Your Email"
+                  required
+                  validate={[required, email]}
+                  className={classes.field}
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={classes.formControl}>
+                <Field
+                  name="password"
+                  component={TextFieldRedux}
+                  type="password"
+                  label="Your Password"
+                  required
+                  validate={[required, passwordsMatch]}
+                  className={classes.field}
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={classes.formControl}>
+                <Field
+                  name="passwordConfirm"
+                  component={TextFieldRedux}
+                  type="password"
+                  label="Re-type Password"
+                  required
+                  validate={[required, passwordsMatch]}
+                  className={classes.field}
+                />
+              </FormControl>
+            </div>
+            <div>
+              <FormControl className={classes.field}>
+                <InputLabel htmlFor="selection">สิทธิ์การเข้าใช้งาน</InputLabel>
+                <Field
+                  name="permission"
+                  component={SelectRedux}
+                  placeholder="selection"
+                  autoWidth={trueBool}
+                  required
+                >
+                  <MenuItem value="guest">Guest user</MenuItem>
+                  <MenuItem value="super">Super user</MenuItem>
+                  <MenuItem value="admin">Admin</MenuItem>
+                </Field>
+              </FormControl>
+            </div>
+            <div className={classes.btnArea}>
+              <Button variant="contained" color="primary" type="submit">
                   ถัดไป
-                  <ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
-                </Button>
-              </div>
-            </form>
-          </section>
+                <ArrowForward className={classNames(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
+              </Button>
+            </div>
+          </form>
+        </section>
       </Paper>
     </Fragment>
   );
