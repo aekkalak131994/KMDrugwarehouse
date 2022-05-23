@@ -7,6 +7,7 @@ import {
   Parent,
   DashboardPage,
   BlankPage,
+  AppFirst,
   Form,
   Table,
   Error,
@@ -19,7 +20,7 @@ function Application(props) {
   return (
     <Dashboard history={history} changeMode={changeMode}>
       <Switch>
-        <Route exact path="/app" component={BlankPage} />
+        <Route exact path="/app" component={AppFirst} />
         <Route exact path="/app/blank-page" component={BlankPage} />
         <Route path="/app/pages/dashboard" component={DashboardPage} />
         <Route path="/app/pages/form" component={Form} />

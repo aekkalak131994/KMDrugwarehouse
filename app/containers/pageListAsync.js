@@ -8,6 +8,10 @@ export const BlankPage = loadable(() =>
   import('./Pages/BlankPage'), {
     fallback: <Loading />,
   });
+export const AppFirst = loadable(() =>
+  import('./Pages/AppFirst'), {
+    fallback: <Loading />,
+});
 export const DashboardPage = loadable(() =>
   import('./Pages/Dashboard'), {
     fallback: <Loading />,
